@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Calculator</title>
+  <title>Calculator</title>
 </head>
 <body>
+  <h1>Simple Calculator</h1>
 
-  <h1>Calculator</h1>
-
-  <input type="number" id="num1" placeholder="First number">
+  <input type="number" id="num1" placeholder="First number" />
 
   <select id="operation">
     <option value="sum">+</option>
@@ -18,35 +17,45 @@
     <option value="divide">÷</option>
   </select>
 
-  <input type="number" id="num2" placeholder="Second number">
+  <input type="number" id="num2" placeholder="Second number" />
 
-  <button id="calculate">Calculate</button>
+  <button type="button" id="btnCalc">Calculate</button>
 
   <p>Result: <strong id="result">—</strong></p>
 
+  <!-- JS -->
   <script src="sum.js"></script>
 
   <script>
-    document.getElementById("calculate").addEventListener("click", function () {
+    document.getElementById("btnCalc").addEventListener("click", function () {
 
       var a = Number(document.getElementById("num1").value) || 0;
       var b = Number(document.getElementById("num2").value) || 0;
       var op = document.getElementById("operation").value;
-      var res;
+
+      var result;
 
       try {
-        if (op === "sum") res = sum(a, b);
-        else if (op === "subtract") res = subtract(a, b);
-        else if (op === "multiply") res = multiply(a, b);
-        else if (op === "divide") res = divide(a, b);
+        if (op === "sum") {
+          result = sum(a, b);
+        } 
+        else if (op === "subtract") {
+          result = subtract(a, b);
+        } 
+        else if (op === "multiply") {
+          result = multiply(a, b);
+        } 
+        else if (op === "divide") {
+          result = divide(a, b);
+        }
 
-        document.getElementById("result").textContent = res;
-      } catch (e) {
-        document.getElementById("result").textContent = e.message;
+        document.getElementById("result").textContent = result;
+
+      } catch (error) {
+        document.getElementById("result").textContent = error.message;
       }
 
     });
   </script>
-
 </body>
 </html>
