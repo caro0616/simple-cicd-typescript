@@ -1,3 +1,5 @@
+import "./sum.js";
+
 declare global {
   interface Window {
     multiply: (a: number, b: number) => number;
@@ -6,10 +8,6 @@ declare global {
     subtract: (a: number, b: number) => number;
   }
 }
-
-beforeAll(() => {
-  require("./sum.js");
-});
 
 describe("multiply", () => {
   it("multiplies two positive numbers", () => {
